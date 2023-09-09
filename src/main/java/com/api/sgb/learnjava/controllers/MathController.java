@@ -1,6 +1,6 @@
 package com.api.sgb.learnjava.controllers;
 
-import com.api.sgb.learnjava.exeptions.UnsupportedMathOperationException;
+import com.api.sgb.learnjava.exeptions.ResourceNotFoundException;
 import com.api.sgb.learnjava.math.SampleMath;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +18,7 @@ public class MathController {
     )
     public Double sum(@PathVariable("numOne") String numOne, @PathVariable("numTow") String numTow) {
         if(!NumberConverter.isNumeric(numOne) || !NumberConverter.isNumeric(numTow)) {
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
         }
         return math.sum(NumberConverter.convertToDouble(numOne), NumberConverter.convertToDouble(numTow));
     }
@@ -29,7 +29,7 @@ public class MathController {
     )
     public Double subtraction(@PathVariable("numOne") String numOne, @PathVariable("numTow") String numTow) {
         if(!NumberConverter.isNumeric(numOne) || !NumberConverter.isNumeric(numTow)) {
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
         }
         return math.subtraction(NumberConverter.convertToDouble(numOne), NumberConverter.convertToDouble(numTow));
     }
@@ -40,7 +40,7 @@ public class MathController {
     )
     public Double multiplication(@PathVariable("numOne") String numOne, @PathVariable("numTow") String numTow) {
         if(!NumberConverter.isNumeric(numOne) || !NumberConverter.isNumeric(numTow)) {
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
         }
         return math.multiplication(NumberConverter.convertToDouble(numOne), NumberConverter.convertToDouble(numTow));
     }
@@ -51,7 +51,7 @@ public class MathController {
     )
     public Double division(@PathVariable("numOne") String numOne, @PathVariable("numTow") String numTow) {
         if(!NumberConverter.isNumeric(numOne) || !NumberConverter.isNumeric(numTow)) {
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
         }
         return math.division(NumberConverter.convertToDouble(numOne), NumberConverter.convertToDouble(numTow));
     }
@@ -62,7 +62,7 @@ public class MathController {
     )
     public Double average(@PathVariable("numOne") String numOne, @PathVariable("numTow") String numTow) {
         if(!NumberConverter.isNumeric(numOne) || !NumberConverter.isNumeric(numTow)) {
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
         }
         return math.average(NumberConverter.convertToDouble(numOne), NumberConverter.convertToDouble(numTow));
     }
@@ -73,7 +73,7 @@ public class MathController {
     )
     public Double squareRoot(@PathVariable("number") String number) {
         if(!NumberConverter.isNumeric(number)) {
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
         }
         return math.squareRoot(NumberConverter.convertToDouble(number));
     }
